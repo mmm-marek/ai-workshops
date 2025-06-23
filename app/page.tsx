@@ -774,10 +774,10 @@ const LecturerSection = () => (
                                 height={192}
                             />
                             <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 font-montserrat text-responsive">
-                                Marek Matušica
+                                Ing. Marek Matušica
                             </h3>
                             <p className="text-purple-600 font-semibold mb-3 sm:mb-4 text-sm sm:text-base text-responsive">
-                                Vedúci AI Stratég & Educator
+                                AI nadšenec a vývojár
                             </p>
                             <div className="flex justify-center space-x-3 sm:space-x-4">
                                 <a
@@ -792,7 +792,7 @@ const LecturerSection = () => (
                                     }}>
                                     <Linkedin size={20} />
                                 </a>
-                                <a
+                                {/* <a
                                     href="#"
                                     className="text-blue-600 hover:text-blue-800 transition-colors"
                                     onClick={(e) => {
@@ -803,7 +803,7 @@ const LecturerSection = () => (
                                         });
                                     }}>
                                     <Twitter size={20} />
-                                </a>
+                                </a> */}
                             </div>
                         </div>
 
@@ -817,11 +817,13 @@ const LecturerSection = () => (
                                     Skúsenosti & Pozadie
                                 </h4>
                                 <p className="text-gray-600 leading-relaxed text-sm sm:text-base text-responsive">
-                                    Viac ako 15 rokov skúseností v AI a
-                                    strojovom učení. PhD. v Computer Science,
-                                    publikoval 50+ výskumných prác. Bývalý Head
-                                    of AI Strategy v TechCorp a Senior Research
-                                    Scientist v Google AI.
+                                    Bol som pri transformácii elv.ai, kde AI
+                                    využili na moderovanie diskusií na
+                                    sociálnych sieťach. Vývíjal som riešenia pre
+                                    Raiffeisen, ktoré poháňa chatbotov v bankách
+                                    po celej Európe. Pracoval som na projekte
+                                    pre Tatra Banku, ktorá používa AI na analýzu
+                                    a spracovanie nových nápadov.
                                 </p>
                             </div>
 
@@ -835,12 +837,11 @@ const LecturerSection = () => (
                                 </h4>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-3 sm:mb-4">
                                     {[
-                                        "Machine Learning & Deep Learning",
-                                        "Natural Language Processing",
-                                        "Computer Vision & AI Ethics",
-                                        "AI Stratégia & Implementácia",
-                                        "Data Science & Analytics",
-                                        "Enterprise AI Transformácia",
+                                        "Tvorba AI riešení",
+                                        "Návrh automatizácií",
+                                        "Úspešné príbehy",
+                                        "Technické vzdelanie",
+                                        "AI stratégia",
                                     ].map((skill, index) => (
                                         <div
                                             key={index}
@@ -873,7 +874,7 @@ const LecturerSection = () => (
                                         </div>
                                         <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
                                             <Image
-                                                src="/images/company-logo-2.png"
+                                                src="/images/company-logo-2.svg"
                                                 alt="Company Logo 2"
                                                 width={32}
                                                 height={32}
@@ -902,9 +903,9 @@ const LecturerSection = () => (
                                     Filozofia Vyučovania
                                 </h4>
                                 <p className="text-gray-600 text-xs sm:text-sm leading-relaxed italic text-responsive">
-                                    "Zameriavam sa na praktické AI riešenia.
-                                    Moje workshopy preklenujú medzeru medzi
-                                    výskumom a obchodnou aplikáciou."
+                                    "Na to aby AI transformala aj váš biznis
+                                    dnes už nepotrebujete vývojára, ale
+                                    vzdelanie."
                                 </p>
                             </div>
                         </div>
@@ -1078,12 +1079,12 @@ const CTASection = ({ selectedPackage }: { selectedPackage: string }) => {
         <div className="w-full bg-[#2A2F5B] bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-indigo-500/20 via-[#2A2F5B] to-[#2A2F5B] text-white">
             <SectionWrapper id="cta" className="py-12 sm:py-16 md:py-24">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 font-montserrat text-responsive text-center">
-                    Pripravení Transformovať Váš Biznis s AI?
+                    Pripravení na transformáciu?
                 </h2>
                 <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-blue-100 mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto px-4 text-responsive text-center">
-                    Poďme prediskutovať, ako naše prispôsobené AI workshopy môžu
-                    pomôcť vašej spoločnosti zvýšiť efektivitu, podporiť
-                    inovácie a dosiahnuť významnú konkurenčnú výhodu.
+                    Poďme zistiť, ako môžeme spoločne posunúť váš biznis vpred.
+                    Vyplňte formulár a čoskoro sa vám ozveme, aby sme
+                    prediskutovali vaše potreby a možnosti spolupráce.
                 </p>
 
                 {isSubmitted ? (
@@ -1102,7 +1103,7 @@ const CTASection = ({ selectedPackage }: { selectedPackage: string }) => {
                 ) : (
                     <div className="bg-white text-gray-800 p-4 sm:p-6 md:p-8 lg:p-10 rounded-2xl sm:rounded-3xl shadow-2xl max-w-2xl mx-auto border border-purple-100">
                         <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-center font-montserrat text-responsive">
-                            Získajte Váš Vlastný AI Workshop Plán
+                            Pripravte váš biznis na budúcnosť
                         </h3>
                         <form
                             onSubmit={handleSubmit}
@@ -1213,7 +1214,7 @@ const CTASection = ({ selectedPackage }: { selectedPackage: string }) => {
                                     value={formData.message}
                                     onChange={handleChange}
                                     className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl sm:rounded-2xl shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base resize-none"
-                                    placeholder="napr. Záujem o AI pre marketingový tím 20 ľudí."
+                                    placeholder="napr. Záujem o AI pre marketingový tím."
                                 />
                             </div>
                             <div className="flex items-start space-x-3">
@@ -1262,11 +1263,11 @@ const CTASection = ({ selectedPackage }: { selectedPackage: string }) => {
                                 className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-xl sm:rounded-2xl text-sm sm:text-base lg:text-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50">
                                 {isSubmitting
                                     ? "Odosielam..."
-                                    : "Požiadajte o Bezplatnú Konzultáciu"}
+                                    : "Požiadajte o bezplatnú konzultáciu"}
                             </Button>
                         </form>
                         <p className="text-xs text-gray-500 mt-4 sm:mt-6 text-center px-2 text-responsive">
-                            Vaša úvodná konzult ácia je bezplatná, bez záväzkov.
+                            Vaša úvodná konzultácia je bezplatná, bez záväzkov.
                             Rešpektujeme vaše súkromie a nikdy nebudeme zdieľať
                             vaše informácie.
                         </p>
