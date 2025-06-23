@@ -24,18 +24,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
 import Navbar from "@/components/navbar";
 import CookieModal from "@/components/cookie-banner";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react"; // Renamed to avoid conflict
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
+
+// CSS to prevent layout shift when the Select dropdown opens
+const preventLayoutShift = `
+  html {
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+  }
+`;
 
 // Conditional analytics tracking
 let trackingEnabled = false;
@@ -998,10 +999,10 @@ const CTASection = ({ selectedPackage }: { selectedPackage: string }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubjectChange = (value: string) => {
-        setFormData({ ...formData, subject: value });
+    const handleSubjectChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({ ...formData, subject: e.target.value });
         track("Form Subject Changed", {
-            subject: value,
+            subject: e.target.value,
             section: "contact_form",
         });
     };
@@ -1114,40 +1115,15 @@ const CTASection = ({ selectedPackage }: { selectedPackage: string }) => {
                                     className="block text-xs sm:text-sm font-medium text-gray-700 text-left mb-1">
                                     Predmet
                                 </label>
-                                <Select
+                                <Input
+                                    type="text"
+                                    name="subject"
+                                    id="subject"
                                     value={formData.subject}
-                                    onValueChange={handleSubjectChange}>
-                                    <SelectTrigger className="w-full rounded-xl sm:rounded-2xl text-xs sm:text-sm">
-                                        <SelectValue placeholder="Vyberte predmet vašej žiadosti" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem
-                                            value="AI Explorer"
-                                            className="text-xs sm:text-sm">
-                                            AI Explorer Workshop
-                                        </SelectItem>
-                                        <SelectItem
-                                            value="AI Innovator"
-                                            className="text-xs sm:text-sm">
-                                            AI Innovator Workshop
-                                        </SelectItem>
-                                        <SelectItem
-                                            value="AI Visionary"
-                                            className="text-xs sm:text-sm">
-                                            AI Visionary Workshop
-                                        </SelectItem>
-                                        <SelectItem
-                                            value="Konzultácia"
-                                            className="text-xs sm:text-sm">
-                                            Bezplatná Konzultácia
-                                        </SelectItem>
-                                        <SelectItem
-                                            value="Iné"
-                                            className="text-xs sm:text-sm">
-                                            Iné
-                                        </SelectItem>
-                                    </SelectContent>
-                                </Select>
+                                    onChange={handleSubjectChange}
+                                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl sm:rounded-2xl shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                                    placeholder="napr. AI Explorer Workshop, Konzultácia, Iné"
+                                />
                             </div>
 
                             <div>
