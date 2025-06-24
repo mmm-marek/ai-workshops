@@ -38,6 +38,130 @@ const preventLayoutShift = `
   }
 `;
 
+// Tech background pattern styles
+const techBackgroundStyles = `
+  .tech-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    background-image: 
+      linear-gradient(90deg, rgba(59, 130, 246, 0.5) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(59, 130, 246, 0.5) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+  }
+  
+  .circuit-line {
+    position: absolute;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8));
+    height: 2px;
+    animation: pulse-current 3s ease-in-out infinite;
+  }
+  
+  .circuit-line.horizontal {
+    width: 120px;
+  }
+  
+  .circuit-line.vertical {
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(0deg, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8));
+  }
+  
+  .chip {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: rgba(59, 130, 246, 0.2);
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    border-radius: 4px;
+    animation: chip-glow 4s ease-in-out infinite;
+  }
+  
+  .chip::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: rgba(147, 51, 234, 0.6);
+    border-radius: 2px;
+    animation: inner-pulse 2s ease-in-out infinite;
+  }
+  
+  .node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(59, 130, 246, 0.6);
+    border-radius: 50%;
+    animation: node-pulse 2.5s ease-in-out infinite;
+  }
+  
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .scroll-indicator:hover {
+    transform: translateX(-50%) scale(1.1);
+  }
+  
+  .scroll-chevron {
+    width: 2rem;
+    height: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    animation: bounce-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-current {
+    0%, 100% { opacity: 0.3; box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+    50% { opacity: 0.8; box-shadow: 0 0 15px rgba(59, 130, 246, 0.8), 0 0 25px rgba(147, 51, 234, 0.6); }
+  }
+  
+  @keyframes chip-glow {
+    0%, 100% { border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 0 5px rgba(59, 130, 246, 0.3); }
+    50% { border-color: rgba(147, 51, 234, 0.6); box-shadow: 0 0 15px rgba(147, 51, 234, 0.5); }
+  }
+  
+  @keyframes inner-pulse {
+    0%, 100% { background: rgba(147, 51, 234, 0.6); transform: translate(-50%, -50%) scale(1); }
+    50% { background: rgba(59, 130, 246, 0.8); transform: translate(-50%, -50%) scale(1.2); }
+  }
+  
+  @keyframes node-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.3); }
+  }
+  
+  @keyframes bounce-pulse {
+    0%, 100% { 
+      transform: translateY(0);
+      opacity: 0.6;
+    }
+    25% {
+      opacity: 0.8;
+    }
+    50% { 
+      transform: translateY(-8px);
+      opacity: 1;
+    }
+    75% {
+      opacity: 0.8;
+    }
+  }
+`;
+
 // Conditional analytics tracking
 let trackingEnabled = false;
 let trackFunction: typeof import("@vercel/analytics").track | null = null;
@@ -206,24 +330,160 @@ const HeroSection = () => {
         }
     };
 
+    const handleScrollClick = () => {
+        track("Scroll Indicator Clicked", {
+            section: "hero",
+        });
+
+        const element = document.getElementById("problem");
+        if (element) {
+            const elementTop = element.offsetTop - 80;
+            window.scrollTo({ top: elementTop, behavior: "smooth" });
+        }
+    };
+
     return (
-        <div className="bg-[#2A2F5B] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-500/20 via-[#2A2F5B] to-[#2A2F5B] text-white py-16 sm:py-20 md:py-32 min-h-screen flex items-center overflow-hidden w-full">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center pt-16 sm:pt-20 w-full">
+        <div className="bg-[#2A2F5B] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-500/20 via-[#2A2F5B] to-[#2A2F5B] text-white py-16 sm:py-20 md:py-32 min-h-screen flex items-center overflow-hidden w-full relative">
+            {/* Tech Background Pattern */}
+            <div className="tech-background"></div>
+
+            {/* Circuit Elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {/* Top section circuit */}
+                <div
+                    className="circuit-line horizontal"
+                    style={{
+                        top: "15%",
+                        left: "10%",
+                        animationDelay: "0s",
+                    }}></div>
+                <div
+                    className="circuit-line vertical"
+                    style={{
+                        top: "12%",
+                        left: "25%",
+                        animationDelay: "1s",
+                    }}></div>
+                <div
+                    className="chip"
+                    style={{
+                        top: "14%",
+                        left: "22%",
+                        animationDelay: "0.5s",
+                    }}></div>
+                <div
+                    className="node"
+                    style={{
+                        top: "16%",
+                        left: "32%",
+                        animationDelay: "1.5s",
+                    }}></div>
+
+                {/* Right section circuit */}
+                <div
+                    className="circuit-line horizontal"
+                    style={{
+                        top: "40%",
+                        right: "8%",
+                        animationDelay: "2s",
+                    }}></div>
+                <div
+                    className="circuit-line vertical"
+                    style={{
+                        top: "35%",
+                        right: "15%",
+                        animationDelay: "0.8s",
+                    }}></div>
+                <div
+                    className="chip"
+                    style={{
+                        top: "38%",
+                        right: "12%",
+                        animationDelay: "1.2s",
+                    }}></div>
+                <div
+                    className="node"
+                    style={{
+                        top: "42%",
+                        right: "20%",
+                        animationDelay: "2.5s",
+                    }}></div>
+
+                {/* Bottom left circuit */}
+                <div
+                    className="circuit-line horizontal"
+                    style={{
+                        bottom: "20%",
+                        left: "5%",
+                        animationDelay: "1.8s",
+                    }}></div>
+                <div
+                    className="circuit-line vertical"
+                    style={{
+                        bottom: "15%",
+                        left: "18%",
+                        animationDelay: "0.3s",
+                    }}></div>
+                <div
+                    className="chip"
+                    style={{
+                        bottom: "18%",
+                        left: "15%",
+                        animationDelay: "2.2s",
+                    }}></div>
+                <div
+                    className="node"
+                    style={{
+                        bottom: "22%",
+                        left: "28%",
+                        animationDelay: "0.7s",
+                    }}></div>
+
+                {/* Additional scattered elements */}
+                <div
+                    className="node"
+                    style={{
+                        top: "25%",
+                        left: "70%",
+                        animationDelay: "3s",
+                    }}></div>
+                <div
+                    className="node"
+                    style={{
+                        top: "60%",
+                        left: "15%",
+                        animationDelay: "1.3s",
+                    }}></div>
+                <div
+                    className="node"
+                    style={{
+                        top: "70%",
+                        right: "25%",
+                        animationDelay: "2.8s",
+                    }}></div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center pt-16 sm:pt-20 w-full relative z-10">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight font-montserrat text-responsive">
                     Pripravte sa na budúcnosť:
                     <br />
                     Naučte sa používať umelú inteligenciu
                 </h1>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-100 mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto px-2 text-responsive">
-                    Naše hands-on AI workshopy sú navrhnuté tak, aby vybavili
-                    váš tím zručnosťami a znalosťami potrebnými na implementáciu
-                    AI riešení, ktoré poháňajú efektivitu a inovácie.
+                    Naše AI workshopy sú navrhnuté tak, aby vybavili váš tím
+                    zručnosťami a znalosťami potrebnými na implementáciu AI
+                    riešení, ktoré poháňajú efektivitu a inovácie.
                 </p>
                 <button
                     onClick={handleCTAClick}
                     className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-2xl sm:rounded-3xl text-sm sm:text-base md:text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg text-responsive">
                     Požiadajte o bezplatnú konzultáciu
                 </button>
+            </div>
+
+            {/* Scroll Indicator */}
+            <div className="scroll-indicator" onClick={handleScrollClick}>
+                <ChevronDown className="scroll-chevron" />
             </div>
         </div>
     );

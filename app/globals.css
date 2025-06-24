@@ -107,3 +107,164 @@ body {
     overflow-wrap: break-word;
     hyphens: auto;
 }
+
+/* Tech background pattern styles */
+.tech-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    background-image:
+        linear-gradient(90deg, rgba(59, 130, 246, 0.5) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(59, 130, 246, 0.5) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+}
+
+.circuit-line {
+    position: absolute;
+    background: linear-gradient(
+        90deg,
+        rgba(59, 130, 246, 0.8),
+        rgba(147, 51, 234, 0.8)
+    );
+    height: 2px;
+    animation: pulse-current 3s ease-in-out infinite;
+}
+
+.circuit-line.horizontal {
+    width: 120px;
+}
+
+.circuit-line.vertical {
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(
+        0deg,
+        rgba(59, 130, 246, 0.8),
+        rgba(147, 51, 234, 0.8)
+    );
+}
+
+.chip {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: rgba(59, 130, 246, 0.2);
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    border-radius: 4px;
+    animation: chip-glow 4s ease-in-out infinite;
+}
+
+.chip::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: rgba(147, 51, 234, 0.6);
+    border-radius: 2px;
+    animation: inner-pulse 2s ease-in-out infinite;
+}
+
+.node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(59, 130, 246, 0.6);
+    border-radius: 50%;
+    animation: node-pulse 2.5s ease-in-out infinite;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.scroll-chevron {
+    width: 2rem;
+    height: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    animation: bounce-pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse-current {
+    0%,
+    100% {
+        opacity: 0.3;
+        box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    }
+    50% {
+        opacity: 0.8;
+        box-shadow:
+            0 0 15px rgba(59, 130, 246, 0.8),
+            0 0 25px rgba(147, 51, 234, 0.6);
+    }
+}
+
+@keyframes chip-glow {
+    0%,
+    100% {
+        border-color: rgba(59, 130, 246, 0.4);
+        box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+        border-color: rgba(147, 51, 234, 0.6);
+        box-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
+    }
+}
+
+@keyframes inner-pulse {
+    0%,
+    100% {
+        background: rgba(147, 51, 234, 0.6);
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        background: rgba(59, 130, 246, 0.8);
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+@keyframes node-pulse {
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.3);
+    }
+}
+
+@keyframes bounce-pulse {
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    25% {
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-8px);
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.8;
+    }
+}
