@@ -169,25 +169,25 @@ const workshopTypes = [
         title: "AI Stratégia pre Vedenie",
         description:
             "Pochopte strategické dôsledky AI a identifikujte high-impact use cases pre váš biznis.",
-        icon: <Brain size={20} className="mx-auto mb-2 text-white" />,
+        icon: <Brain size={20} className="mx-auto text-white" />,
     },
     {
         title: "Praktické AI pre Technické Tímy",
         description:
             "Hands-on školenie kľúčových AI nástrojov a platforiem na budovanie a nasadenie AI riešení.",
-        icon: <Zap size={20} className="mx-auto mb-2 text-white" />,
+        icon: <Zap size={20} className="mx-auto  text-white" />,
     },
     {
         title: "AI-Powered Marketing & Predaj",
         description:
             "Naučte sa využívať AI pre lepšie poznatky o zákazníkoch, personalizované kampane a automatizáciu predaja.",
-        icon: <BarChart size={20} className="mx-auto mb-2 text-white" />,
+        icon: <BarChart size={20} className="mx-auto  text-white" />,
     },
     {
         title: "Vlastný AI Projekt Workshop",
         description:
             "Spolupracujte s našimi expertmi na spustení konkrétneho AI projektu vo vašej organizácii.",
-        icon: <CheckCircle size={20} className="mx-auto mb-2 text-white" />,
+        icon: <CheckCircle size={20} className="mx-auto  text-white" />,
     },
 ];
 
@@ -210,34 +210,20 @@ const HeroSection = () => {
         <div className="bg-[#2A2F5B] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-500/20 via-[#2A2F5B] to-[#2A2F5B] text-white py-16 sm:py-20 md:py-32 min-h-screen flex items-center overflow-hidden w-full">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center pt-16 sm:pt-20 w-full">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight font-montserrat text-responsive">
-                    Odomknite Inovácie & Efektivitu:{" "}
-                    <br className="hidden sm:block" />
-                    Posilnite Váš Tím Praktickými AI Workshopmi
+                    Pripravte sa na budúcnosť:
+                    <br />
+                    Naučte sa používať umelú inteligenciu
                 </h1>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-100 mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto px-2 text-responsive">
-                    Transformujte vaše obchodné operácie, zvýšte produktivitu a
-                    získajte konkurenčnú výhodu s našimi prispôsobenými AI
-                    školeniami navrhnutými pre firemné tímy.
+                    Naše hands-on AI workshopy sú navrhnuté tak, aby vybavili
+                    váš tím zručnosťami a znalosťami potrebnými na implementáciu
+                    AI riešení, ktoré poháňajú efektivitu a inovácie.
                 </p>
                 <button
                     onClick={handleCTAClick}
                     className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 md:px-10 rounded-2xl sm:rounded-3xl text-sm sm:text-base md:text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg text-responsive">
-                    Požiadajte o Vlastný Workshop Plán
+                    Požiadajte o bezplatnú konzultáciu
                 </button>
-                <div className="mt-8 sm:mt-12 text-xs sm:text-sm text-gray-200 px-4 text-responsive">
-                    Dôverujú nám lídri z:
-                    <span className="font-semibold mx-1 sm:mx-2">
-                        Innovate Corp
-                    </span>{" "}
-                    |
-                    <span className="font-semibold mx-1 sm:mx-2">
-                        Future Solutions
-                    </span>{" "}
-                    |
-                    <span className="font-semibold mx-1 sm:mx-2">
-                        Global Enterprises
-                    </span>
-                </div>
             </div>
         </div>
     );
@@ -857,44 +843,7 @@ const LecturerSection = () => (
                                         </div>
                                     ))}
                                 </div>
-
-                                {/* Company Logos - smaller and integrated */}
-                                <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200">
-                                    <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3 text-center text-responsive">
-                                        Vytvoril AI riešenia pre:
-                                    </p>
-                                    <div className="flex justify-center items-center space-x-4 sm:space-x-6">
-                                        <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-                                            <Image
-                                                src="/images/company-logo-1.png"
-                                                alt="Company Logo 1"
-                                                width={32}
-                                                height={32}
-                                                className="object-contain w-full h-full"
-                                            />
-                                        </div>
-                                        <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-                                            <Image
-                                                src="/images/company-logo-2.svg"
-                                                alt="Company Logo 2"
-                                                width={32}
-                                                height={32}
-                                                className="object-contain w-full h-full"
-                                            />
-                                        </div>
-                                        <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
-                                            <Image
-                                                src="/images/company-logo-3.png"
-                                                alt="Company Logo 3"
-                                                width={32}
-                                                height={32}
-                                                className="object-contain w-full h-full"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-
                             <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-purple-100">
                                 <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-800 mb-2 flex items-center text-responsive">
                                     <Star
