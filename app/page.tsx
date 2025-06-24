@@ -565,6 +565,76 @@ const ProblemOpportunitySection = () => (
     </SectionWrapper>
 );
 
+// AI Statistics Section
+const AIStatisticsSection = () => (
+    <div className="w-full bg-gradient-to-br from-blue-50 to-purple-50">
+        <SectionWrapper id="statistics" className="py-12 sm:py-16 md:py-24">
+            <SectionTitle>AI Už Transformuje Svetové Spoločnosti</SectionTitle>
+            <p className="text-center text-gray-600 max-w-4xl mx-auto mb-8 sm:mb-12 leading-relaxed text-sm sm:text-base px-4 text-responsive">
+                Najúspešnejšie spoločnosti na svete už využívajú AI na
+                dosiahnutie konkurenčnej výhody. Pozrite si fakty, ktoré hovoria
+                za všetko:
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+                <div className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-lg border border-blue-100 text-center">
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-2xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                        <Building size={32} />
+                    </div>
+                    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-2">
+                        80%
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 text-responsive">
+                        Fortune 500 Spoločností
+                    </h3>
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-responsive">
+                        už integrovali ChatGPT do svojich pracovných procesov
+                    </p>
+                </div>
+
+                <div className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-lg border border-purple-100 text-center">
+                    <div className="bg-gradient-to-r from-purple-500 to-blue-600 text-white p-4 rounded-2xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                        <Zap size={32} />
+                    </div>
+                    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-2">
+                        70%
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 text-responsive">
+                        Vyššia Produktivita
+                    </h3>
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-responsive">
+                        dosiahli používatelia Microsoft 365 Copilot
+                    </p>
+                </div>
+
+                <div className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-lg border border-blue-100 text-center">
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-2xl mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+                        <BarChart size={32} />
+                    </div>
+                    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-2">
+                        59%
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 text-responsive">
+                        Viac Dokumentov
+                    </h3>
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-responsive">
+                        dokážu spracovať používatelia ChatGPT za 8-hodinový
+                        pracovný deň (MIT štúdia)
+                    </p>
+                </div>
+            </div>
+
+            <div className="mt-8 sm:mt-12 text-center px-4">
+                <p className="text-lg sm:text-xl text-gray-700 font-semibold max-w-4xl mx-auto text-responsive">
+                    Zatiaľ čo vaša konkurencia získava náskok, vy môžete byť
+                    ešte rýchlejší.
+                    <span className="text-purple-600"> Začnite dnes.</span>
+                </p>
+            </div>
+        </SectionWrapper>
+    </div>
+);
+
 // Solution Section
 const SolutionSection = () => (
     <div className="w-full bg-gray-50">
@@ -1706,6 +1776,7 @@ export default function Home() {
             <HeroSection />
             <ProblemOpportunitySection />
             <SolutionSection />
+            <AIStatisticsSection />
             <HowItWorksSection />
             <LecturerSection />
             <PricingSection onPackageSelect={handlePackageSelect} />
