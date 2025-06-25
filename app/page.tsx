@@ -496,11 +496,14 @@ const ProblemOpportunitySection = () => (
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="order-2 lg:order-1">
                 <Image
-                    src="/placeholder.svg?height=400&width=600"
-                    alt="Tím vyzerá zmätene na komplexné dáta"
+                    src="/people-working.jpg"
+                    alt="Skupina profesionálov pracuje na laptopoch a učí sa o umelej inteligencii v modernom kancelárskom prostredí"
                     className="rounded-2xl sm:rounded-3xl shadow-xl w-full h-auto"
                     width={600}
                     height={400}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                    priority={false}
+                    quality={85}
                 />
             </div>
             <div className="text-gray-700 order-1 lg:order-2">
@@ -1180,12 +1183,11 @@ const LecturerSection = () => (
                                         className="text-purple-500 mr-2"
                                         size={16}
                                     />
-                                    Filozofia Vyučovania
+                                    Filozofia
                                 </h4>
                                 <p className="text-gray-600 text-xs sm:text-sm leading-relaxed italic text-responsive">
-                                    "Na to aby AI transformala aj váš biznis
-                                    dnes už nepotrebujete vývojára, ale
-                                    vzdelanie."
+                                    "Vďaka AI sú dnes inovácie a automatizácie
+                                    dostupnejšie ako kedykoľvek predtým."
                                 </p>
                             </div>
                         </div>
